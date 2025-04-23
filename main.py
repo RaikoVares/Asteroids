@@ -1,5 +1,5 @@
 import pygame
-
+import sys
 
 from constants import *
 from player import Player
@@ -39,6 +39,11 @@ def main():
         for item in drawable_gp:
             item.draw(screen)
 
+        for asteroid in asteroids_gp:
+            if player.circle_collision(asteroid):
+                print("Game over!")
+                sys.exit()
+            
         pygame.display.flip()
 
         time_passed = clock.tick(60)
