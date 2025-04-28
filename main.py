@@ -48,8 +48,8 @@ def main():
             
             for shot in player_shots_gp:
                 if shot.circle_collision(asteroid):
-                    asteroid.kill()
                     shot.kill()
+                    asteroid.split()
 
             
         pygame.display.flip()
